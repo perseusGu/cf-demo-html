@@ -1,0 +1,57 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>cf-demo-html</groupId>
+  <artifactId>cf-demo-html</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+  
+  <properties>
+		<spring.version>3.2.0.RELEASE</spring.version>
+		<org.slf4j.version>1.5.8</org.slf4j.version>
+		<org.hibernate.version>3.5.6-Final</org.hibernate.version>
+		<com.jcraft.version>0.1.49</com.jcraft.version>
+		<javassist.version>3.12.1.GA</javassist.version>
+		<commons-dbcp.version>1.4</commons-dbcp.version>
+		<javax.servlet.version>2.5</javax.servlet.version>
+		<org.aspectj.version>1.7.1</org.aspectj.version>
+		<com.fasterxml.jackson.core.version>2.1.2</com.fasterxml.jackson.core.version>
+		<postgresql.version>9.1-901.jdbc4</postgresql.version>
+		<mysql.version>5.1.23</mysql.version>
+		<junit.version>4.11</junit.version>
+		<springsecurity.version>3.0.7.RELEASE</springsecurity.version>
+	</properties>
+ 
+ 
+  <dependencies>
+    
+    
+	    
+  </dependencies>
+  <build>
+    <finalName>ssmp2</finalName>
+    <plugins>
+    	 <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <configuration>
+                    <webXml>src\main\webapp\WEB-INF\web.xml</webXml>
+                </configuration>
+            </plugin>
+	      <plugin>
+	          <groupId>org.cloudfoundry</groupId>
+	          <artifactId>cf-maven-plugin</artifactId>
+	          <version>1.0.4</version>
+	          <configuration>
+	              <target>http://api.run.pivotal.io</target>
+	              <org>yanjun</org>
+	              <space>development</space>
+	              <appname>cf-demo-html</appname>
+	              <memory>512</memory>
+	              <instances>1</instances>
+	             
+	              <server>cloud-foundry-credentials</server>
+	          </configuration>
+	      </plugin>
+	  </plugins>
+  </build>
+</project>
